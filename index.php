@@ -38,15 +38,62 @@ abra a URL http//localhost
                 </h2>
                 <form action="#" method="post" class="p-2" id="formlogin">
                     <div class="form-group">
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="nomeUsuario" id="nomeUsuario" placeholder="Nome de usuario"
+                        class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" name="senhaUsuario" id="senhaUsuario"
+                        placeholder="Senha" class="form-control">
 
                     </div>
+
+
+
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                    <input type="checkbox" name="lembrar"
+                    id="lembrar" class="custom-control-input">
+                    <label for="lembrar" class="custom-control-label">
+                        Lembrar de mim.
+                    </label>
+
+
+
+
+                    <a href="#" class="float-right" id="btnEsqueci" >
+                        Esqueci a senha 
+
+                        </a>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="::Entrar::"
+                        name="btnEntrar" id="btnEntrar"
+                        class="btn btn-primary btn-block" >
+
+                    </div>
+
+                    <div class="form-group">
+                        <p class="text-center">
+                            Novo usuário? <a href="btnRegistrar">
+                            Registre-se aqui!
+                        </a> 
+                    
+                    </p>
+
+                    </div>
+
                 </form>
 
             </div>
 
         </section>
-    <h1>Alo Ha Mundo Maravilhoso do Bootstrap</h1>
+   
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
