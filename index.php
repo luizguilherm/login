@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="pt-br">
-Para acessar o projrto, habilite o apache no XAMPP
-abra a URL http//localhost
+
+<!-- Para acessar o projrto, habilite o apache no XAMPP
+abra a URL http//localhost -->
 
 
 
@@ -77,23 +78,57 @@ abra a URL http//localhost
                         class="btn btn-primary btn-block" >
 
                     </div>
-
                     <div class="form-group">
                         <p class="text-center">
                             Novo usuário? <a href="btnRegistrar">
                             Registre-se aqui!
                         </a> 
-                    
                     </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    <!--  Final da Seção de login -->
+                
+                    <!-- Formulario de recuperação de Senha -->
+        <section class="row mt-5">
+            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaLogin">
+                <h2 class="text-center mt-2">Gerar Nova Senha</h2>
+                <form action="#" method="post" id="formSenha" class="p-2">
+
+                    <div class="form-group">
+                        <small class="text-muted">
+                            Para gerar uma nova senha, digite o seu e-mail. Clique no seu link
+                            gerado.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" name="emailGerarSenha" id="emailGerarSenha" class="form-control"
+                        placeholder="E-Mail de recuperação de senha">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="::Gerar::"
+                        name="btnGerar" id="btnGerar"
+                        class="btn btn-primary btn-block">
 
                     </div>
 
-                </form>
+                    <div class="form-group">
+                        <p class="text-centaer">
+                            já registrado?
+                            <a href="#" id="btnjaRegistrado">
+                                Entrar por aqui.
+                            </a>
 
-            </div>
+                        </p>
 
-        </section>
-   
+                    </div>
+            </form>
+        </div>
+    </section>
+                <!-- Fim da seção de recuperação de senha -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
