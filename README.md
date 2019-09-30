@@ -3,7 +3,15 @@ Sistema de Login em PHP e Javascript
 
 ...
 # aula 3
-# aula 2
+- Formulario de cadastro de novos usuarios
+- Validaçao dos campos com jQuery validade
+- ~Ocultar e mostrar os formularios com jQuery~
+
+jQuery e uma biblioteca de funçoes javascript.
+
+
+
+# aula 2 
 # Passo a passo em todo início de aula
 
 ## Habilitar o Proxy

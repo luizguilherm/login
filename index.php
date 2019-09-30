@@ -130,6 +130,56 @@ abra a URL http//localhost -->
     </section>
                 <!-- Fim da seção de recuperação de senha -->
 
+        <!-- início do formulario de cadastro de novos usuario -->
+
+
+        <section class="row mt-5">
+        <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaRegistro">
+        <h2 class="text-center mt-2">Registra-se aqui</h2>
+        <form action="#" method="post" class="p-2" id="formregistro">
+        <div class="form-group">
+        
+            <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control"
+            placeholder="Nome completo">
+            
+        </div>
+
+
+            <div class="form-group">
+            <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control"
+            placeholder="Nome de usuário">
+
+            <div class="form-group">
+                <input type="email" name="emailUsuario" id="emailUsuario" class="form-control"
+                placeholder="E-mail">
+            </div>
+
+
+            <div class="form-group">
+            <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control"
+            placeholder="Senha">
+
+            
+            </div>
+
+
+
+            </div>
+        
+        
+        
+        </form>
+
+
+        </div>
+
+
+
+        </section>
+
+        <!-- final do formulario de cadastro de novos usuarios -->
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
