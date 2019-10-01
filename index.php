@@ -1,20 +1,34 @@
+Skip to content
+
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+
+@luizguilherm
+1
+0 0 carolinesilva1/login
+Code Issues 7 Pull requests 0 Projects 1 Wiki Security Insights
+login/index.php
+@carolinesilva1 carolinesilva1 Update index.php
+cfed179 1 hour ago
+202 lines (174 sloc) 8.56 KB
+
 <!doctype html>
-<html lang="pt-br">
-
-<!-- Para acessar o projrto, habilite o apache no XAMPP
-abra a URL http//localhost/login -->
-
-
+<html lang="en">
+<!--
+    para acessar o projeto, habilite o Apache no XAMPP
+    Abra a URL http://localhost/login/ no navegador -->
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>Sistema de login</title>
+    <title>Sistema de Login</title>
     <style>
         #alerta,
         #caixaSenha,
@@ -25,64 +39,47 @@ abra a URL http//localhost/login -->
 </head>
 
 <body class="bg-dark">
-    <!-- fundo escuro -->
-
-    <main class="container">
+    <!-- Fundo Escuro-->
+    <main class="container mt-4">
         <section class="row">
             <div class="col-lg-4 offset-lg-4" id="alerta">
                 <div class="alert alert-success text-center">
                     <strong>
-                        Alo Ha Tchurmaaaaaaaaaaaaaaaaaa!
+                        Alo Ha turmaaaaaaaa!
                     </strong>
-
                 </div>
             </div>
         </section>
-        <!-- Formulario de Login -->
+        <!-- Formulário de Login -->
         <section class="row">
-            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixalogin">
+            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaLogin">
                 <h2 class="text-center mt-2">
-                    Entrar no sistema
+                    Entrar no Sistema
                 </h2>
                 <form action="#" method="post" class="p-2" id="formlogin">
                     <div class="form-group">
-                        <input type="text" name="" id="nomeUsuario" id="nomeUsuario" placeholder="Nome de usuario" class="form-control">
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome de Usuário" class="form-control">
                     </div>
-
                     <div class="form-group">
                         <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" class="form-control">
-
                     </div>
-
-
-
                     <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input">
-                            <label for="lembrar" class="custom-control-label">
-                                Lembrar de mim.
+                        <div class="custon-control custon-checkbox">
+                            <input type="checkbox" name="lembrar" id="lembrar" class="custon-control-input">
+                            <label for="lembrar" class="custon-control-label">
+                                Lembrar de Mim
                             </label>
-
-
-
-
                             <a href="#" class="float-right" id="btnEsqueci">
-                                Esqueci a senha
-
+                                Esqueci a Senha
                             </a>
-
-
                         </div>
-
                     </div>
-
                     <div class="form-group">
                         <input type="submit" value="::Entrar::" name="btnEntrar" id="btnEntrar" class="btn btn-primary btn-block">
-
                     </div>
                     <div class="form-group">
-                        <p class="text-center">
-                            Novo usuário? <a href="btnRegistrarNovo">
+                        <p class="text-center">Novo Usuário?
+                            <a href="#" id="btnRegistrarNovo">
                                 Registre-se aqui!
                             </a>
                         </p>
@@ -90,126 +87,110 @@ abra a URL http//localhost/login -->
                 </form>
             </div>
         </section>
-        <!--  Final da Seção de login -->
-
-        <!-- Formulario de recuperação de Senha -->
+        <!-- Final da seção de Login-->
+        <br>
+        <!-- Formulário de recuperação de senha -->
         <section class="row mt-5">
             <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaSenha">
-                <h2 class="text-center mt-2">Gerar Nova Senha</h2>
+                <h2 class="text-center mt-2">
+                    Gerar Nova Senha
+                </h2>
                 <form action="#" method="post" id="formSenha" class="p-2">
-
                     <div class="form-group">
                         <small class="text-muted">
-                            Para gerar uma nova senha, digite o seu e-mail. Clique no seu link
-                            gerado.
+                            Para gerar uma nova senha, digite o
+                            seu e-mail. Clique no link gerado.
                         </small>
                     </div>
-
                     <div class="form-group">
-                        <input type="email" name="emailGerarSenha" id="emailGerarSenha" class="form-control" placeholder="E-Mail de recuperação de senha">
+                        <input type="email" name="emailGerarSenha" id="emailGerarSenha" class="form-control" placeholder="E-mail Recuperação de Senha">
                     </div>
-
                     <div class="form-group">
-                        <input type="submit" value="::Gerar::" name="btnGerar" id="btnGerar" class="btn btn-primary btn-block">
-
+                        <input type="submit" value="::Gerar:;" name="btnGerar" id="btnGerar" class="btn btn-primary btn-block">
                     </div>
-
                     <div class="form-group">
-                        <p class="text-centaer">
-                            já registrado?
-                            <a href="#" id="btnjaRegistrado">
-                                Entrar por aqui.
+                        <p class="text-center">
+                            Já Registrado?
+                            <a href="#" id="btnJaRegistrado">
+                                Entrar por Aqui.
                             </a>
-
                         </p>
-
                     </div>
                 </form>
             </div>
         </section>
-        <!-- Fim da seção de recuperação de senha -->
-
-        <!-- início do formulario de cadastro de novos usuario -->
-
-
+        <!-- Fim da seção Recuperação de senha -->
+        <!-- Início de formulário de cadastro de novos usuários -->
         <section class="row mt-5">
             <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaRegistro">
-                <h2 class="text-center mt-2">Registra-se aqui</h2>
-                <form action="#" method="post" class="p-2" id="formregistro">
+                <h2 class="text-center mt-2">Registre-se aqui</h2>
+                <form action="#" method="post" class="p-2" id="formRegistro">
                     <div class="form-group">
-
-                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome completo">
-
+                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome Completo">
                     </div>
-
-
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome de usuário">
-
-                        <div class="form-group">
-                            <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="E-mail">
-                        </div>
-
-
-                        <div class="form-group">
-                            <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control" placeholder="Senha">
-
-                        </div>
-
-                        <div class="form-group">
-                            <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar senha">
-
-                        </div>
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" name="concordar" id="concordar" class="custom-control-inpunt">
-                                <label for="concordar" class="custom-control-label">
-                                    Eu concordo com <a href="#">os termos e condições.</a>
-                                </label>
-                            </div>
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome de Usuário">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control" placeholder="Senha">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar Senha">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
+                            <label for="concordar" class="custom-control-label">
+                                Eu concordo com <a href="#">os termos e condições </a>
+                            </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" id="btnregistrar" class="btn btn-primary btn-block">
-                    </div>
-                    <div class="form-group">
-                        <p class="text-centaer">
-                            já registrado?
-                            <a href="#" id="btnjaRegistrado2">
-                                Entrar por aqui.
-                            </a>
-                        </p>
+                        <input type="submit" value="::Registrar::" name="btnRegistrar" id="btnRegistrar" class="btn btn-primary btn-block">
+                        <div class="form-group">
+                            <p class="text-center">
+                                Já Registrado?
+                                <a href="#" id="btnJaRegistrado2">
+                                    Entrar por Aqui.
+                                </a>
+                            </p>
+                        </div>
                     </div>
                 </form>
             </div>
         </section>
-        <!-- final do formulario de cadastro de novos usuarios -->
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script>
-            //Codigo jquery para mostrar e ocultar os formularios
-            $(function() {
-                $("#btnEsqueci").click(function() {
-                    $("#caixaLogin").hide(); //Ocultar Login
-                    $("#caixaSenha").show(); //Mostrar Nova Senha
-                });
-                $("#btnJaRegistrado").click(function() {
-                    $("#caixaSenha").hide(); //Ocultar Gerar NovaSenha
-                    $("#caixaLogin").show(); //Mostrar caixa Login
-                });
-                $("#btnRegistrarNovo").click(function() {
-                    $("#caixaLogin").hide(); //Ocultar
-                    $("#caixaRegistro").show(); //Mostrar
-                });
-                $("#btnJaRegistrado2").click(function() {
-                    $("#caixaLogin").show(); //Mostrar
-                    $("#caixaRegistro").hide(); //Ocultar
-                });
-            });
-        </script>
+        <!-- Final do formulário de cadastro de novos usuários -->
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script>
+    //Codigo jQuery para mostrar e ocultar os formulários
+    $(function() {
+    $("#btnEsqueci").click(function() {
+    $("#caixaLogin").hide(); //Ocultar Login
+    $("#caixaSenha").show(); //Mostrar Nova Senha
+    });
+    $("#btnJaRegistrado").click(function() {
+    $("#caixaSenha").hide(); //Ocultar Gerar NovaSenha
+    $("#caixaLogin").show(); //Mostrar caixa Login
+    });
+    $("#btnRegistrarNovo").click(function() {
+    $("#caixaLogin").hide(); //Ocultar
+    $("#caixaRegistro").show(); //Mostrar
+    });
+    $("#btnJaRegistrado2").click(function() {
+    $("#caixaLogin").show(); //Mostrar
+    $("#caixaRegistro").hide(); //Ocultar
+    });
+    });
+    </script>
 </body>
 
 </html>
