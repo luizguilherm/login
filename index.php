@@ -191,16 +191,23 @@ abra a URL http//localhost/login -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
             //Codigo jquery para mostrar e ocultar os formularios
-            $(function() _ {
+            $(function() {
                 $("#btnEsqueci").click(function() {
-                    $("#caixaLogin").hide(); //Oucultar
-                    $("#caixaSenha").show(); //Mostrar
+                    $("#caixaLogin").hide(); //Ocultar Login
+                    $("#caixaSenha").show(); //Mostrar Nova Senha
+                });
+                $("#btnJaRegistrado").click(function() {
+                    $("#caixaSenha").hide(); //Ocultar Gerar NovaSenha
+                    $("#caixaLogin").show(); //Mostrar caixa Login
                 });
                 $("#btnRegistrarNovo").click(function() {
-                    $("#caixaSenha").hide(); //Oucultar gerar senha
-                    $("#caixaLogin").show();//Mostrar caixa login
+                    $("#caixaLogin").hide(); //Ocultar
+                    $("#caixaRegistro").show(); //Mostrar
                 });
-
+                $("#btnJaRegistrado2").click(function() {
+                    $("#caixaLogin").show(); //Mostrar
+                    $("#caixaRegistro").hide(); //Ocultar
+                });
             });
         </script>
 </body>
