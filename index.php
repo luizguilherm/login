@@ -13,8 +13,8 @@ Explore
 Code Issues 7 Pull requests 0 Projects 1 Wiki Security Insights
 login/index.php
 @carolinesilva1 carolinesilva1 Update index.php
-cfed179 1 hour ago
-202 lines (174 sloc) 8.56 KB
+d9e8c69 27 seconds ago
+219 lines (189 sloc) 9.28 KB
 
 <!doctype html>
 <html lang="en">
@@ -29,6 +29,7 @@ cfed179 1 hour ago
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Sistema de Login</title>
+    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
     <style>
         #alerta,
         #caixaSenha,
@@ -58,15 +59,15 @@ cfed179 1 hour ago
                 </h2>
                 <form action="#" method="post" class="p-2" id="formlogin">
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome de Usuário" class="form-control">
+                        <input type="text" name="nomeDoUsuario" id="nomeDoUsuario" placeholder="Nome de Usuário" class="form-control" required minlenght="5">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" class="form-control">
+                        <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" placeholder="Senha" class="form-control" required minlegth="6">
                     </div>
-                    <div class="form-group">
-                        <div class="custon-control custon-checkbox">
-                            <input type="checkbox" name="lembrar" id="lembrar" class="custon-control-input">
-                            <label for="lembrar" class="custon-control-label">
+                    <div class="form-group mt-5">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input">
+                            <label for="lembrar" class="custom-control-label">
                                 Lembrar de Mim
                             </label>
                             <a href="#" class="float-right" id="btnEsqueci">
@@ -103,10 +104,10 @@ cfed179 1 hour ago
                         </small>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="emailGerarSenha" id="emailGerarSenha" class="form-control" placeholder="E-mail Recuperação de Senha">
+                        <input type="email" name="emailGerarSenha" id="emailGerarSenha" class="form-control" placeholder="E-mail Recuperação de Senha" required>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="::Gerar:;" name="btnGerar" id="btnGerar" class="btn btn-primary btn-block">
+                        <input type="submit" value="::Gerar::" name="btnGerar" id="btnGerar" class="btn btn-primary btn-block">
                     </div>
                     <div class="form-group">
                         <p class="text-center">
@@ -126,21 +127,21 @@ cfed179 1 hour ago
                 <h2 class="text-center mt-2">Registre-se aqui</h2>
                 <form action="#" method="post" class="p-2" id="formRegistro">
                     <div class="form-group">
-                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome Completo">
+                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome Completo" required minlength="6">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome de Usuário">
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome de Usuário" required minlength="5">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="E-mail">
+                        <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="E-mail" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control" placeholder="Senha">
+                        <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" class="form-control" placeholder="Senha" required minlength="6">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar Senha">
+                        <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar Senha" required minlength="6">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
                             <label for="concordar" class="custom-control-label">
@@ -171,25 +172,67 @@ cfed179 1 hour ago
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script>
-    //Codigo jQuery para mostrar e ocultar os formulários
-    $(function() {
-    $("#btnEsqueci").click(function() {
-    $("#caixaLogin").hide(); //Ocultar Login
-    $("#caixaSenha").show(); //Mostrar Nova Senha
-    });
-    $("#btnJaRegistrado").click(function() {
-    $("#caixaSenha").hide(); //Ocultar Gerar NovaSenha
-    $("#caixaLogin").show(); //Mostrar caixa Login
-    });
-    $("#btnRegistrarNovo").click(function() {
-    $("#caixaLogin").hide(); //Ocultar
-    $("#caixaRegistro").show(); //Mostrar
-    });
-    $("#btnJaRegistrado2").click(function() {
-    $("#caixaLogin").show(); //Mostrar
-    $("#caixaRegistro").hide(); //Ocultar
-    });
-    });
+        //Código jQuery para mostrar e ocultar os formulários
+        $(function() {
+            //Validação de formulários 
+            jQuery.validator.setDefaults({
+                success: "valid"
+            });
+            $("#formRegistro").validate({
+                rules: {
+                    senhaDoUsuario: "required",
+                    senhaUsuarioConfirmar: {
+                        equalTo: "#senhaDoUsuario"
+                    }
+                }
+            });
+
+            $(#"formLogin").validate();
+
+            $("#formSenha").validade();
+            //Mostrar e ocultar formulários
+            $("#btnEsqueci").click(function() {
+                $("#caixaLogin").hide(); //Ocultar Login
+                $("#caixaSenha").show(); //Mostrar Nova Senha
+            });
+            $("#btnJaRegistrado").click(function() {
+                $("#caixaSenha").hide(); //Ocultar Gerar NovaSenha
+                $("#caixaLogin").show(); //Mostrar caixa Login
+            });
+            $("#btnRegistrarNovo").click(function() {
+                $("#caixaLogin").hide(); //Ocultar
+                $("#caixaRegistro").show(); //Mostrar
+            });
+            $("#btnJaRegistrado2").click(function() {
+                $("#caixaLogin").show(); //Mostrar
+                $("#caixaRegistro").hide(); //Ocultar
+            });
+            /*
+             * Translated default messages for the jQuery validation plugin.
+             * Locale: PT_BR
+             */
+            jQuery.extend(jQuery.validator.messages, {
+                required: "Este campo &eacute; requerido.",
+                remote: "Por favor, corrija este campo.",
+                email: "Por favor, forne&ccedil;a um endere&ccedil;o eletr&ocirc;nico v&aacute;lido.",
+                url: "Por favor, forne&ccedil;a uma URL v&aacute;lida.",
+                date: "Por favor, forne&ccedil;a uma data v&aacute;lida.",
+                dateISO: "Por favor, forne&ccedil;a uma data v&aacute;lida (ISO).",
+                number: "Por favor, forne&ccedil;a um n&uacute;mero v&aacute;lido.",
+                digits: "Por favor, forne&ccedil;a somente d&iacute;gitos.",
+                creditcard: "Por favor, forne&ccedil;a um cart&atilde;o de cr&eacute;dito v&aacute;lido.",
+                equalTo: "Por favor, forne&ccedil;a o mesmo valor novamente.",
+                accept: "Por favor, forne&ccedil;a um valor com uma extens&atilde;o v&aacute;lida.",
+                maxlength: jQuery.validator.format("Por favor, forne&ccedil;a n&atilde;o mais que {0} caracteres."),
+                minlength: jQuery.validator.format("Por favor, forne&ccedil;a ao menos {0} caracteres."),
+                rangelength: jQuery.validator.format("Por favor, forne&ccedil;a um valor entre {0} e {1} caracteres de comprimento."),
+                range: jQuery.validator.format("Por favor, forne&ccedil;a um valor entre {0} e {1}."),
+                max: jQuery.validator.format("Por favor, forne&ccedil;a um valor menor ou igual a {0}."),
+                min: jQuery.validator.format("Por favor, forne&ccedil;a um valor maior ou igual a {0}.")
+            });
+        
+
+        });
     </script>
 </body>
 
