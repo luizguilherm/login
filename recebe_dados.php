@@ -1,18 +1,36 @@
-if(isset($_POST['action']) && $_POST['action']=='cadastro'){
-if($_POST['action']=='cadastro'){
-//Senão, teste se açõa é igual a cadastro
-
-}else ($_POST['action']=='login'){
-//Senão, teste se açõa é login
+<?php
 
 
-}else if($_POST['action'] == 'senha'){
-//Senão, teste se açõa é recuperar senha
+// Teste a ação
+if(isset ($_POST['action'])){
+    if($_POST['action'] == 'cadastro'){
+//Teste se a ação é cadastro
+echo "\n<p> cadastro</p>";
+echo "\n<pre>";
+print_r ($_POST);
+echo "\n</pre>";
 
+    }else if($_POST['action'] == 'login'){
+       //Senão teste se ação é login
+
+        echo "\n<p>login</p>";
+        echo "\n<pre>";
+        print_r($_POST);
+        echo "\n</pre>";
+
+    }else if ($_POST['action'] == 'senha'){
+       //Senão teste se a açaõ é recuperar senha
+
+        echo "\n<p>senha</p>";
+        echo "\n<pre>";
+        print_r($_POST);
+        echo "\n</pre>";
+    }else{
+        header("location:index.php");
+    }
 }else{
-    echo "<h1>Alo ha!</h1> <h2> acesso negado</h2>";
+   //Redirecionando para index.php. negando o acesso
+   // a esse arquivo diretamente
+    header("location:index.php");
+}
 
-}
-}else{
-    echo "<h2> Acesso negado</h2>;"
-}
