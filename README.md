@@ -1,6 +1,9 @@
 # login
 Sistema de Login em PHP e Javascript
 
+# aula 6 - 15/10/2019
+
+
 # aula 5 - 07/10/2019
 
 # aula 4 - 1/10/2019
@@ -55,3 +58,11 @@ Abra o navegador Firefox Azul e digite http://localhost/login
 Editar utilizando o VS Code
 Tecla Windows - Abrir o Visual Studio Code (é o azul)
 Abrir Pasta no VS Code escolha c:\xampp\htdocs\login
+
+
+## importar o banco de dados
+- Acessar no navegador http://localhost/phpmyadmin/
+- Clicar em importar
+- Selecionar o arquivo, clicando em Browse ou escolha o arquivo
+- Abra o arquivo 127.0.0.1sql e clique em executar
+- o banco de ter sido importado corretamente
