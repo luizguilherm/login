@@ -1,5 +1,14 @@
 <?php
 
+require_once 'configBD.php';
+
+function verificar_entrada($entrada){
+    $saida = htmlspecialchars($entrada);
+    $saida = stripslashes($saida);
+    $saida = trim($saida);
+    
+
+}
 
 // Teste a ação
 if(isset ($_POST['action'])){
