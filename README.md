@@ -1,44 +1,46 @@
-# login
+login
 Sistema de Login em PHP e Javascript
 
-# aula 7 - 18/10/2019
+aula08 - 21/10/2019
+Autenticação do usuário e permissão de acesso ao perfil.php
+Conceito de sessão
+aula07 - 18/10/2019
+Início da autenticação e entrada no sistema
+aula06 - 15/10/2019 👨‍🏫 Dia do Professor!
+Persistência de dados no banco de dados.
 
-# aula 6 - 15/10/2019
+aula05 - 04/10/2019
+Envio de dados do Front-end para o Back-end, métodos GET e POST.
 
+aula04 - 01/10/2019
+Validação com HTML5
+Validação dos campos com jQuery validate
+aula03 - 30/09/2019
+Formulário de Cadastro de novos usuários
+Validação dos campos com jQuery validate
+Ocultar e Mostrar os formulários com jQuery
+jQuery é uma biblioteca de funções javascript.
 
-# aula 5 - 07/10/2019
-
-# aula 4 - 1/10/2019
-- Validação com HTML5
-- Validação dos campos com jQuery validade
-
-
-# aula03 - 30/09/2019
-- Formulário de Cadastro de novos usuários
-- Validação dos campos com jQuery validate
-- Ocultar e Mostrar os formulários com jQuery
-- jQuery é uma biblioteca de funções javascript.
-
-# aula02 - 24/09/2019
+aula02 - 24/09/2019
 Layout Bootstrap para os formulários
 
-- Formulário de Login
-- Formulário de recuperação de senha
-- Formulário de Cadastro de novos usuários
-# aula01 - 23/09/2019 :godmode:
+Formulário de Login
+Formulário de recuperação de senha
+Formulário de Cadastro de novos usuários
+aula01 - 23/09/2019 :godmode:
 🌺🍀 Começou a Primavera 🌻🌷 Aula inicial, configuração do projeto no Github. E criação do passo a passo.
 
-# Passo a passo em todo início de aula
-# Habilitar o Proxy
-- Tecla Windows - Abrir a janela Prompt de Comando
+Passo a passo em todo início de aula
+Habilitar o Proxy
+Tecla Windows - Abrir a janela Prompt de Comando
 
-- Copie e cole a linha abaixo - selecione e pressione as teclas Ctrl C
+Copie e cole a linha abaixo - selecione e pressione as teclas Ctrl C
 
 git config --global http.proxy http://10.1.21.254:3128
 
 Cole no Prompt de Comando e
 
-- Pressione Enter
+Pressione Enter
 
 Clonar o repositório login na pasta c:\xampp\htdocs
 Tecla Windows - Abrir o Github Desktop
@@ -60,11 +62,9 @@ Abra o navegador Firefox Azul e digite http://localhost/login
 Editar utilizando o VS Code
 Tecla Windows - Abrir o Visual Studio Code (é o azul)
 Abrir Pasta no VS Code escolha c:\xampp\htdocs\login
-
-
-## importar o banco de dados
-- Acessar no navegador http://localhost/phpmyadmin/
-- Clicar em importar
-- Selecionar o arquivo, clicando em Browse ou escolha o arquivo
-- Abra o arquivo 127.0.0.1sql e clique em executar
-- o banco de ter sido importado corretamente
+Importar o banco de dados
+Acessar no navegador http://localhost/phpmyadmin
+Clicar em importar
+Selecionar o arquivo, clicando em Browse ou escolha o arquivo
+Abra o arquivo 127.0.0.1.sql e clique em executar
+O banco deve ter sido importado corretamente

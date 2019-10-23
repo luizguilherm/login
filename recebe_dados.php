@@ -1,4 +1,6 @@
 <?php
+//Iniciando a sessão
+session_start();
 //Conexão com o banco de dados
 require_once 'configBD.php';
 function verificar_entrada($entrada)
@@ -24,7 +26,6 @@ if (isset($_POST['action'])) {
         $senhaDoUsuario = verificar_entrada($_POST['senhaDoUsuario']);
         $senhaUsuarioConfirmar =
             verificar_entrada($_POST['senhaUsuarioConfirmar']);
-
         $dataCriado = date("Y-m-d"); //Data atual no formato Banco de Dados
         //Codificando as senhas
         $senhaCodificada = sha1($senhaDoUsuario);
@@ -42,7 +43,7 @@ if (isset($_POST['action'])) {
             //As senhas conferem, verificar se o usuário já
             //existe no banco de dados
             $sql = $connect->prepare("SELECT nomeDoUsuario, emailUsuario 
-            FROM usuario WHERE nomeDoUsuario = ? OR emailUsuario = ?");
+        FROM usuario WHERE nomeDoUsuario = ? OR emailUsuario = ?");
             $sql->bind_param("ss", $nomeDoUsuario, $emailUsuario);
             $sql->execute();
             $resultado = $sql->get_result();
@@ -63,7 +64,7 @@ if (isset($_POST['action'])) {
                     $nomeCompleto,
                     $emailUsuario,
                     $senhaCodificada,
-                    $dataCriado
+                    $dataCriado,
                 );
                 if ($sql->execute()) {
                     echo "<p class='text-success'>Usuário cadastrado</p>";
@@ -77,26 +78,40 @@ if (isset($_POST['action'])) {
         $nomeUsuario = verificar_entrada($_POST['nomeUsuario']);
         $senhaUsuario = verificar_entrada($_POST['senhaUsuario']);
         $senha = sha1($senhaUsuario);
-
-        $sql = $connect->prepare("SELECT * FROM usuario WHERE
-        senhaDoUsuario = ? AND nomeDoUsuario = ?");
+        $sql = $connect->prepare("SELECT * FROM usuario WHERE 
+                senhaDoUsuario = ? and nomeDoUsuario =?");
         $sql->bind_param("ss", $senha, $nomeUsuario);
-
         $sql->execute();
-
         $busca = $sql->fetch();
+        if ($busca != null) {
+            $_SESSION['nomeDoUsuario'] = $nomeUsuario;
+
+        if(!empty($_POST['lembrar'])){
+            setcookie("nomeDoUsuario", $nomeUsuario,
+            time()+(60*60*24*30));
+            setcookie("senhaDoUsuario", $senhaUsuario,
+            time()+(60*60*24*30));
 
 
-        if($busca != null){
-            echo "ok";
         }else {
+            setcookie("nomeDousuario","");
+            setcookie("senhaDoUsuario","");
+    # code...
+}
+
+            echo "ok";
+
+
+       
+        
+            
+        } else {
             echo "<p class='text-danger'>";
-            echo "falhou a entrada no sistema. Nome de usuário ou senha inválidos";
+            echo "Falhou a entrada no sistema. Nome de usuário ou senha
+                        inválidos";
             echo "</p>";
             exit();
         }
-
-        
     } else if ($_POST['action'] == 'senha') {
         //Senão, teste se ação é recuperar senha
         echo "\n<p>senha</p>";
