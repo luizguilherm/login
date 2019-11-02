@@ -16,7 +16,8 @@
     <style>
         #alerta,
         #caixaSenha,
-        #caixaRegistro {
+        #caixaRegistro,
+        #caixaNovo {
             display: none;
         }
     </style>
@@ -42,35 +43,28 @@
                 </h2>
                 <form action="#" method="post" class="p-2" id="formLogin">
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" 
-                        id="nomeUsuario" placeholder="Nome de Usuário" 
-                        class="form-control" required minlength="5"
-                        value="<?=
-                        isset($_COOKIE['nomeDoUsuario'])
-                        ?$_COOKIE['nomeDoUsuario']:"";
-                        ?>">
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome de Usuário" class="form-control" required minlength="5" value="<?=
+                                                                                                                                                                    isset($_COOKIE['nomeDoUsuario'])
+                                                                                                                                                                        ? $_COOKIE['nomeDoUsuario'] : "";
+                                                                                                                                                                ?>">
 
 
                     </div>
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" 
-                        id="senhaUsuario" placeholder="Senha" 
-                        class="form-control" required minlength="6"
-                        value="<?=
-                        isset($_COOKIE['senhaDoUsuario'])
-                        ?$_COOKIE['senhaDoUsuario']:"";
-                        ?>">
+                        <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" class="form-control" required minlength="6" value="<?=
+                                                                                                                                                                isset($_COOKIE['senhaDoUsuario'])
+                                                                                                                                                                    ? $_COOKIE['senhaDoUsuario'] : "";
+                                                                                                                                                            ?>">
+
                     </div>
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="lembrar" id="lembrar" 
-                            class="custom-control-input"
 
 
+                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input" <?=
+                                                                                                                isset($_COOKIE['senhaDoUsuario']) ? "checked" : "";
+                                                                                                            ?>>
 
-                            <?= 
-                                isset($_COOKIE['senhaDoUsuario'])?"cheked":"";                            
-                            ?>>
 
 
                             <label for="lembrar" class="custom-control-label">
@@ -91,87 +85,185 @@
                             </a>
                         </p>
                     </div>
-                </form>
-            </div>
-        </section>
-        <!-- Final da Seção de Login-->
-        <!-- Formulário de Recuperação de Senha -->
-        <section class="row mt-5">
-            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaSenha">
-                <h2 class="text-center mt-2">
-                    Gerar Nova Senha
-                </h2>
-                <form action="#" method="post" id="formSenha" class="p-2">
                     <div class="form-group">
-                        <small class="text-muted">
-                            Para gerar uma nova senha, digite o
-                            seu e-mail. Clique no link gerado.
-                        </small>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="emailGerarSenha" id="emailGerarSenha" class="form-control" placeholder="E-mail de recuperação de senha" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="::Gerar::" name="btnGerar" id="btnGerar" class="btn btn-primary btn-block">
-                    </div>
-                    <div class="form-group">
-                        <p class="text-center">
-                            Já registrado?
-                            <a href="#" id="btnJaRegistrado">
-                                Entrar por aqui.
+                    <p class="text-center">
+                        <a href="#" id="btnMostrar">
+                                Mostrar
                             </a>
                         </p>
                     </div>
+
+                    
+
+                    </div>
                 </form>
             </div>
         </section>
-        <!-- Fim da Seção de Recuperação de Senha -->
-        <!-- Início do formulário de 
-        cadastro de novos usuários -->
+
+        <!-- Inicio do formulario Novo -->
+
+
         <section class="row mt-5">
-            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaRegistro">
-                <h2 class="text-center mt-2">Registre-se aqui</h2>
-                <form action="#" method="post" class="p-2" id="formRegistro">
+            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaNovo">
+                <h2 class="text-center mt-2">Novo</h2>
+                <form action="#" method="post" class="p-2" id="formNovo">
+
+
+
+
                     <div class="form-group">
-                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome completo" required minlength="6">
+
+                        <input type="text" name="nomeCompleto" id="nomeCompleto" required placeholder="Digite o seu nome completo" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="email" name="email" id="email" required placeholder="Digite o seu E-mail" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="date" name="dataNiver" id="dataNiver" required class="form-control">
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="url" name="urlFace" id="urlFace" required placeholder="Página do perfil do Facebook" class="form-control">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="url" name="urlImagem" id="urlImagem" required placeholder="URL da imagem do perfil" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <select class="form-control" name="estado" id="estado">
+                            <option></option>
+                            <option value="PR">Paraná</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="SC">Santa Catarina</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <select class="form-control" name="cidade" id="cidade">
+                            <option></option>
+                            <option value="Brusque">Brusque</option>
+                            <option value="Guabiruba">Guabiruba</option>
+                            <option value="Itajaí">Itajaí</option>
+                            <option value="Gaspar">Gaspar</option>
+                            <option value="Botuverá">Botuverá</option>
+                            <option value="Nova Trento">Nova Trento</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-5">
+                        <input type="submit" value="::Enviar::" name="btnEnviar" class="btn btn-info btn btn-block">
+
                     </div>
                     <div class="form-group">
-                        <input type="text" name="nomeDoUsuario" id="nomeDoUsuario" class="form-control" placeholder="Nome de usuário" required minlength="5">
+
+
+                        <a href="#" id="btnVoltar">
+                            Voltar
+                        </a>
+                    </form>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="E-mail" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" class="form-control" placeholder="Senha" required minlength="6">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar senha" required minlength="6">
-                    </div>
-                    <div class="form-group mt-4">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
-                            <label for="concordar" class="custom-control-label">
-                                Eu concordo com <a href="#">
-                                    os termos e condições.</a>
-                            </label>
+                    </section>
+                    <!-- Final da Seção de Login-->
+                    <!-- Formulário de Recuperação de Senha -->
+                    <section class="row mt-5">
+                        <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaSenha">
+                            <h2 class="text-center mt-2">
+                                Gerar Nova Senha
+                            </h2>
+                            <form action="#" method="post" id="formSenha" class="p-2">
+                                <div class="form-group">
+                                    <small class="text-muted">
+                                        Para gerar uma nova senha, digite o
+                                        seu e-mail. Clique no link gerado.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="emailGerarSenha" id="emailGerarSenha" class="form-control" placeholder="E-mail de recuperação de senha" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="::Gerar::" name="btnGerar" id="btnGerar" class="btn btn-primary btn-block">
+                                </div>
+                                <div class="form-group">
+                                    <p class="text-center">
+                                        Já registrado?
+                                        <a href="#" id="btnJaRegistrado">
+                                            Entrar por aqui.
+                                        </a>
+                                    </p>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="::Registrar::" name="btnRegistrar" id="btnRegistrar" class="btn btn-primary btn-block">
-                    </div>
-                    <div class="form-group">
-                        <p class="text-center">
-                            Já registrado?
-                            <a href="#" id="btnJaRegistrado2">
-                                Entrar por aqui.
-                            </a>
-                        </p>
-                    </div>
+                    </section>
+                    <!-- Fim da Seção de Recuperação de Senha -->
+                    <!-- Início do formulário de 
+        cadastro de novos usuários -->
+                    <section class="row mt-5">
+                        <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaRegistro">
+                            <h2 class="text-center mt-2">Registre-se aqui</h2>
+                            <form action="#" method="post" class="p-2" id="formRegistro">
+                                <div class="form-group">
+                                    <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome completo" required minlength="6">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="nomeDoUsuario" id="nomeDoUsuario" class="form-control" placeholder="Nome de usuário" required minlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="E-mail" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" class="form-control" placeholder="Senha" required minlength="6">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar senha" required minlength="6">
+                                </div>
+                                <div class="form-group mt-4">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
+                                        <label for="concordar" class="custom-control-label">
+                                            Eu concordo com <a href="#">
+                                                os termos e condições.</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="::Registrar::" name="btnRegistrar" id="btnRegistrar" class="btn btn-primary btn-block">
+                                </div>
+                                <div class="form-group">
+                                    <p class="text-center">
+                                        Já registrado?
+                                        <a href="#" id="btnJaRegistrado2">
+                                            Entrar por aqui.
+                                        </a>
+                                    </p>
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </section>
+
+
+
+                    <!-- Final do formulário de 
+        cadastro de novos usuários -->
+
+
+
+
                 </form>
             </div>
         </section>
-        <!-- Final do formulário de 
-        cadastro de novos usuários -->
+
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -196,6 +288,7 @@
             });
             $("#formLogin").validate();
             $("#formSenha").validate();
+            $("#formNovo").validate();
             //Mostrar e Ocultar Formulários
             $("#btnEsqueci").click(function() {
                 $("#caixaLogin").hide(); //Ocultar Login
@@ -212,6 +305,14 @@
             $("#btnJaRegistrado2").click(function() {
                 $("#caixaLogin").show(); //Mostrar
                 $("#caixaRegistro").hide(); //Ocultar
+            });
+            $("#btnMostrar").click(function() {
+                $("#caixaNovo").show(); //mostrar
+                $("#caixaLogin").hide(); //Ocultar
+            });
+            $("#btnVoltar").click(function() {
+                $("#caixaLogin").show(); //Mostrar
+                $("#caixaNovo").hide(); //Ocultar
             });
             //Cadastro de novo usuário
             $("#btnRegistrar").click(function(e) {
@@ -302,4 +403,4 @@
     </script>
 </body>
 
-</html>
+</html>s
