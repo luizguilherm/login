@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Out-2019 às 21:26
+-- Tempo de geração: 19-Nov-2019 às 22:08
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.3.7
 
@@ -21,7 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `senai`
 --
-DROP DATABASE IF EXISTS `senai`;
 CREATE DATABASE IF NOT EXISTS `senai` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `senai`;
 
@@ -31,15 +30,23 @@ USE `senai`;
 -- Estrutura da tabela `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `idUsuario` int(10) UNSIGNED NOT NULL,
   `nomeCompleto` varchar(100) NOT NULL,
   `nomeDoUsuario` varchar(45) NOT NULL,
   `emailUsuario` varchar(45) NOT NULL,
   `senhaDoUsuario` char(40) NOT NULL,
-  `dataCriado` date NOT NULL
+  `dataCriado` date NOT NULL,
+  `token` char(10) NOT NULL,
+  `tempoDeVida` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeDoUsuario`, `emailUsuario`, `senhaDoUsuario`, `dataCriado`, `token`, `tempoDeVida`) VALUES
+(4, 'Luiz Gui', 'luizguilherm', 'luiz@132', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-19', 's7aNaph3T6', '2019-11-20 00:06:01');
 
 --
 -- Índices para tabelas despejadas
@@ -61,7 +68,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

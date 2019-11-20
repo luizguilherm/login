@@ -26,6 +26,7 @@ if (isset($_POST['action'])) {
         $senhaDoUsuario = verificar_entrada($_POST['senhaDoUsuario']);
         $senhaUsuarioConfirmar =
             verificar_entrada($_POST['senhaUsuarioConfirmar']);
+
         $dataCriado = date("Y-m-d"); //Data atual no formato Banco de Dados
         //Codificando as senhas
         $senhaCodificada = sha1($senhaDoUsuario);
@@ -43,7 +44,7 @@ if (isset($_POST['action'])) {
             //As senhas conferem, verificar se o usuário já
             //existe no banco de dados
             $sql = $connect->prepare("SELECT nomeDoUsuario, emailUsuario 
-        FROM usuario WHERE nomeDoUsuario = ? OR emailUsuario = ?");
+            FROM usuario WHERE nomeDoUsuario = ? OR emailUsuario = ?");
             $sql->bind_param("ss", $nomeDoUsuario, $emailUsuario);
             $sql->execute();
             $resultado = $sql->get_result();
@@ -64,7 +65,7 @@ if (isset($_POST['action'])) {
                     $nomeCompleto,
                     $emailUsuario,
                     $senhaCodificada,
-                    $dataCriado,
+                    $dataCriado
                 );
                 if ($sql->execute()) {
                     echo "<p class='text-success'>Usuário cadastrado</p>";
@@ -77,47 +78,70 @@ if (isset($_POST['action'])) {
     } else if ($_POST['action'] == 'login') {
         $nomeUsuario = verificar_entrada($_POST['nomeUsuario']);
         $senhaUsuario = verificar_entrada($_POST['senhaUsuario']);
-        $senha = sha1($senhaUsuario);
+        $senha = sha1($senhaUsuario); //Senha codificada
         $sql = $connect->prepare("SELECT * FROM usuario WHERE 
-                senhaDoUsuario = ? and nomeDoUsuario =?");
+        senhaDoUsuario = ? AND nomeDoUsuario = ?");
         $sql->bind_param("ss", $senha, $nomeUsuario);
         $sql->execute();
         $busca = $sql->fetch();
         if ($busca != null) {
             $_SESSION['nomeDoUsuario'] = $nomeUsuario;
 
-        if(!empty($_POST['lembrar'])){
-            setcookie("nomeDoUsuario", $nomeUsuario,
-            time()+(60*60*24*30));
-            setcookie("senhaDoUsuario", $senhaUsuario,
-            time()+(60*60*24*30));
-
-
-        }else {
-            setcookie("nomeDousuario","");
-            setcookie("senhaDoUsuario","");
-    # code...
-}
+            if (!empty($_POST['lembrar'])) {
+                //Se lembrar não estiver vazio!
+                //Ou seja, a pessoa quer ser lembrada!
+                setcookie(
+                    "nomeDoUsuario",
+                    $nomeUsuario,
+                    time() + (60 * 60 * 24 * 30)
+                );
+                setcookie(
+                    "senhaDoUsuario",
+                    $senhaUsuario,
+                    time() + (60 * 60 * 24 * 30)
+                );
+            } else {
+                //A pessoa não quer ser lembrada
+                //Limpando o cookie
+                setcookie("nomeDoUsuario", "");
+                setcookie("senhaDoUsuario", "");
+            }
 
             echo "ok";
-
-
-       
-        
-            
         } else {
             echo "<p class='text-danger'>";
-            echo "Falhou a entrada no sistema. Nome de usuário ou senha
-                        inválidos";
+            echo "Falhou a entrada no sistema. Nome de 
+            usuário ou senha inválidos";
             echo "</p>";
             exit();
         }
     } else if ($_POST['action'] == 'senha') {
         //Senão, teste se ação é recuperar senha
-        echo "\n<p>senha</p>";
-        echo "\n<pre>"; //Pre-formatar
-        print_r($_POST);
-        echo "\n<\pre>";
+        $email = verificar_entrada($_POST['emailGerarSenha']);
+        $sql = $connect->prepare("SELECT idUsuario FROM usuario 
+        WHERE emailUsuario = ?");
+        $sql->bind_param("s", $email);
+        $sql->execute();
+        $resposta = $sql->get_result();
+        if ($resposta->num_rows > 0) {
+            //echo "E-mail encontrado!";
+            $frase = "BataTinha7823478234QUandoNasce23897368EspalhaRamaPeloChao12309876";
+            $palavra_secreta = str_shuffle($frase);
+            $token = substr($palavra_secreta, 0, 10);
+            //echo "Token: $token";
+            $sql = $connect->prepare("UPDATE usuario SET token=?, 
+            tempoDeVida=DATE_ADD(NOW(), INTERVAL 1 MINUTE) WHERE
+            emailUsuario = ?");
+            $sql->bind_param("ss", $token, $email);
+            $sql->execute();
+            //echo "Token no Banco de Dados!";
+
+            $link ="<a href='gerarSenha.php?email=$email&token=$token'> Clique aqui para gerar nova senha</a>";
+            echo $link; //Este link deve ser enviado
+            
+        } else {
+            echo "E-mail não foi encontrado!";
+        }
     } else {
         header("location:index.php");
     }
